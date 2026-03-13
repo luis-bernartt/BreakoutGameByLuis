@@ -32,6 +32,33 @@ screen main_menu():
                 textbutton "[('> ' if hovered_btn == 'quit' else '  ')]Quit" style "menu_item" action Return("quit") hovered SetScreenVariable("hovered_btn", "quit") unhovered SetScreenVariable("hovered_btn", "")
 
 
+# Popup genérico de confirmação para ações destrutivas/navegação crítica.
+# Saída:
+# - Return(True) ao confirmar.
+# - Return(False) ao cancelar.
+screen confirm_action_popup(title_text, body_text="", confirm_text="Sim", cancel_text="Cancelar"):
+    tag menu
+    modal True
+    default hovered_btn = ""
+
+    frame xsize menu_w ysize menu_h xalign 0.5 yalign 0.5 style "menu_frame":
+        vbox:
+            spacing 28
+            xalign 0.5
+            yalign 0.5
+
+            text "[rainbow_title(title_text)]" style "menu_title" size 72
+            if body_text:
+                text "[body_text]" style "menu_content" xalign 0.5
+
+            hbox:
+                spacing 50
+                xalign 0.5
+
+                textbutton "[('> ' if hovered_btn == 'confirm' else '  ')][confirm_text]" style "menu_item" action Return(True) hovered SetScreenVariable("hovered_btn", "confirm") unhovered SetScreenVariable("hovered_btn", "")
+                textbutton "[('> ' if hovered_btn == 'cancel' else '  ')][cancel_text]" style "menu_item" action Return(False) hovered SetScreenVariable("hovered_btn", "cancel") unhovered SetScreenVariable("hovered_btn", "")
+
+
 # Tela de leaderboard com paginação.
 # Objetivo: exibir ranking sem sobrecarregar a leitura em listas longas.
 # Variáveis de screen:

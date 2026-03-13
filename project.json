@@ -2,8 +2,7 @@
   "build_update": false,
   "packages": [
     "pc",
-    "mac",
-    "linux"
+    "mac"
   ],
   "add_from": true,
   "force_recompile": true,

@@ -19,7 +19,12 @@ label main_menu:
             jump options_root
 
         elif menu_choice == "quit":
-            $ renpy.quit()
+            $ quit_confirmed = renpy.call_screen(
+                "confirm_action_popup",
+                title_text="Sair do jogo?",
+            )
+            if quit_confirmed:
+                $ renpy.quit()
 
         else:
             return

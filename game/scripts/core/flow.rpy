@@ -25,7 +25,6 @@ label game_run:
                 goto = "main_menu"
                 break
             elif result == "pause":
-                # keep the pause stack alive; back from submenus returns here.
                 while True:
                     game.is_paused = True
                     choice = renpy.call_screen("pause_menu", game=game)
@@ -46,14 +45,25 @@ label game_run:
                             elif opt_choice == "audio":
                                 renpy.call_screen("options_audio")
                             else:
-                                # back from options returns to pause menu
                                 break
 
                     elif choice == "main_menu":
-                        game.is_paused = False
-                        goto = "main_menu"
-                        break
-
+                        if game.score > 0:
+                            go_to_menu = renpy.call_screen(
+                                "confirm_action_popup",
+                                title_text="Voltar ao menu?",
+                                body_text="A partida atual sera encerrada.",
+                                confirm_text="Sim, sair",
+                                cancel_text="Continuar"
+                            )
+                            if go_to_menu:
+                                game.is_paused = False
+                                goto = "main_menu"
+                                break
+                        else:
+                            game.is_paused = False
+                            goto = "main_menu"
+                            break
                     else:
                         game.is_paused = False
                         play_sfx("ui_click")
