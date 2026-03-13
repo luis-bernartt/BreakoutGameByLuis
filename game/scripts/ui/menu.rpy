@@ -166,12 +166,12 @@ screen help_screen():
 
                             hbox:
                                 spacing 20
-                                add load_ui_frames("stored", count=6, size=(36,36), native_size=(32,32)) fit "contain" xysize (36, 36)
+                                add load_ui_frames("stored", count=6, size=(36,36), native_size=(32,16)) fit "contain" xysize (36, 36)
                                 text "Powerups guardados." color "#ddd" size 24 yalign 0.5
 
                             hbox:
                                 spacing 20
-                                add "breakout/ui/powerup_default.png" fit "contain" xysize (36, 36)
+                                add "breakout/ui/powerup_default.png" fit "contain" xysize (32, 32)
                                 text "Icone padrao quando a fila esta vazia." color "#ddd" size 24 yalign 0.5
 
                     else:
