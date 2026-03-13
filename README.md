@@ -6,6 +6,14 @@ Projeto de Breakout desenvolvido em Ren'Py como parte de um teste da OppaiMan.
 
 - Ren'Py 8.5.2
 
+## Compatibilidade
+
+Este jogo foi testado em:
+
+- Windows
+- Linux
+- macOS
+
 ## Como gerar a build
 
 1. Clone este repositório para a pasta de projetos do Ren'Py 8.5.2.
