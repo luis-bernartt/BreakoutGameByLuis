@@ -21,7 +21,11 @@ Projeto de Breakout desenvolvido em Ren'Py como parte de um teste da OppaiMan.
 1. Acesse a pasta de distribuição criada pelo Ren'Py.
 2. Descompacte o arquivo `.zip` da plataforma desejada.
 3. Abra a pasta descompactada.
-4. Execute o arquivo `BreakoutGameByLuis.py`.
+4. Execute:
+   - `BreakoutGameByLuis.py` no Windows e no macOS.
+   - `BreakoutGameByLuis.sh` no Linux.
+
+**Observação:** no macOS, pode ser necessário permitir a execução do arquivo nas configurações de segurança do sistema.
 
 ### Executar o projeto no Ren'Py
 
